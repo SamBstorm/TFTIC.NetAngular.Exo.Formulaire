@@ -1,0 +1,8 @@
+<fieldset [formGroup]="hobbiesForm">
+    <legend>Points d'intérêts</legend>
+    <app-hobbies-form-array title="Nourritures et boissons" [formArray]="MealsAndDrinks"></app-hobbies-form-array>
+    <app-hobbies-form-array title="Voyages" [formArray]="Travels"></app-hobbies-form-array>
+    <app-hobbies-form-array title="Passe-temps" [formArray]="Sparetimes"></app-hobbies-form-array>
+    <app-hobbies-form-array title="Films" [formArray]="Movies"></app-hobbies-form-array>
+    <app-hobbies-form-array title="Sorties" [formArray]="Parties"></app-hobbies-form-array>
+</fieldset>

@@ -1,0 +1,10 @@
+<div *ngIf="formArray">
+    <h3>{{title}}</h3>
+    <div>
+        <input type="text" [(ngModel)]="newValue">
+        <input type="button" value="+" (click)="addValue()">
+    </div>
+    <ul *ngIf="formArray.value.length > 0">
+        <li *ngFor="let item of formArray.value">{{item}}</li>
+    </ul>
+</div>

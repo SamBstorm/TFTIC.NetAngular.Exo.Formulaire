@@ -1,0 +1,61 @@
+<fieldset [formGroup]="userForm">
+    <legend>Compte</legend>
+    <div>
+        <label for="firstname">
+            Prénom :
+            <input id="firstname" type="text" formControlName="firstname">
+        </label>
+        <div *ngIf="userForm.controls['firstname'].errors && userForm.controls['firstname'].touched">
+            <p *ngIf="userForm.controls['firstname'].errors['required']">Ce champs est requis.</p>
+            <p *ngIf="userForm.controls['firstname'].errors['minlength']">Ce champs doit contenir au minimum 2 caractères.</p>
+            <p *ngIf="userForm.controls['firstname'].errors['maxlength']">Ce champs doit contenir au maximum 32 caractères.</p>
+        </div>
+    </div>
+    <div>
+        <label for="lastname">
+            Nom :
+            <input id="lastname" type="text" formControlName="lastname">
+        </label>
+        <div *ngIf="userForm.controls['lastname'].errors && userForm.controls['lastname'].touched">
+            <p *ngIf="userForm.controls['lastname'].errors['required']">Ce champs est requis.</p>
+            <p *ngIf="userForm.controls['lastname'].errors['minlength']">Ce champs doit contenir au minimum 2 caractères.</p>
+            <p *ngIf="userForm.controls['lastname'].errors['maxlength']">Ce champs doit contenir au maximum 32 caractères.</p>
+        </div>
+    </div>
+    <div>
+        <label for="email">
+            Courrier électronique :
+            <input id="email" type="email" formControlName="email">
+        </label>
+        <div *ngIf="userForm.controls['email'].errors && userForm.controls['email'].touched">
+            <p *ngIf="userForm.controls['email'].errors['required']">Ce champs est requis.</p>
+            <p *ngIf="userForm.controls['email'].errors['email']">Ce champs doit être une adresse e-mail valide.</p>
+        </div>
+    </div>
+    <div>
+        <label for="password">
+            Mot de passe :
+            <input id="password" type="password" formControlName="password">
+        </label>
+        <div *ngIf="userForm.controls['password'].errors && userForm.controls['password'].touched">
+            <p *ngIf="userForm.controls['password'].errors['required']">Ce champs est requis.</p>
+            <p *ngIf="userForm.controls['password'].errors['minlength']">Ce champs doit contenir au minimum 8 caractères.</p>
+            <p *ngIf="userForm.controls['password'].errors['maxlength']">Ce champs doit contenir au maximum 16 caractères.</p>
+            <p *ngIf="userForm.controls['password'].errors['minUpperCase']">Ce champs doit contenir au minimum 1 caractère en majuscule.</p>
+            <p *ngIf="userForm.controls['password'].errors['minLowerCase']">Ce champs doit contenir au minimum 1 caractère en minuscule.</p>
+            <p *ngIf="userForm.controls['password'].errors['minNumber']">Ce champs doit contenir au minimum 1 caractère numérique.</p>
+        </div>
+    </div>
+    <div>
+        <label for="confirmPassword">
+            Veuillez confirmer le mot de passe :
+            <input id="confirmPassword" type="password" formControlName="confirmPassword">
+        </label>
+        <div *ngIf="userForm.errors && userForm.controls['confirmPassword'].touched">
+            <p *ngIf="userForm.errors['checkFields']">Ce champs doit correspondre au mot de passe indiqué précédemment.</p>
+            <ng-container  *ngIf="userForm.controls['confirmPassword'].errors">
+                <p *ngIf="userForm.controls['confirmPassword'].errors['required']">Ce champs est requis.</p>
+            </ng-container>
+        </div>
+    </div>
+</fieldset>

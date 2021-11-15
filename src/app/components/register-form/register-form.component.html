@@ -1,0 +1,8 @@
+<div *ngIf="registerForm">
+    <form (ngSubmit)="onSubmit()">
+        <app-user-form [userForm]="userForm"></app-user-form>
+        <app-person-form [personForm]="personForm"></app-person-form>
+        <app-hobbies-form [hobbiesForm]="hobbiesForm"></app-hobbies-form>
+        <input type="submit" value="S'enregistrer" [disabled]="!registerForm.valid">
+    </form>
+</div>

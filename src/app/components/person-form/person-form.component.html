@@ -1,0 +1,126 @@
+<fieldset [formGroup]="personForm">
+    <legend>Informations personnelles</legend>
+    <div>
+        <label for="pseudo">
+            Pseudo :
+            <input id="pseudo" type="text" formControlName="pseudo">
+        </label>
+        <div *ngIf="personForm.controls['pseudo'].errors && personForm.controls['pseudo'].touched">
+            <p *ngIf="personForm.controls['pseudo'].errors['required']">Ce champs est requis.</p>
+            <p *ngIf="personForm.controls['pseudo'].errors['minlength']">Ce champs doit contenir au minimum 4 caractères.</p>
+            <p *ngIf="personForm.controls['pseudo'].errors['maxlength']">Ce champs doit contenir au maximum 16 caractères.</p>
+        </div>
+    </div>
+    <div>
+        <h4>Genre : </h4>
+        <label for="genderMale">
+            Homme
+            <input id="genderMale" type="radio" formControlName="gender" value="Male">
+        </label>
+        <label for="genderFemale">
+            Femme
+            <input id="genderFemale" type="radio" formControlName="gender" value="Female">
+        </label>
+        <label for="genderOther">
+            Autre
+            <input id="genderOther" type="radio" formControlName="gender" value="Other">
+        </label>
+        <div *ngIf="personForm.controls['gender'].errors && personForm.controls['gender'].touched">
+            <p *ngIf="personForm.controls['gender'].errors['required']">Ce champs est requis.</p>
+        </div>
+    </div>
+    <div>
+        <h4>Genre recherché : </h4>
+        <label for="matchesGenderMale">
+            Homme
+            <input id="matchesGenderMale" type="radio" formControlName="matchesGender" value="Male">
+        </label>
+        <label for="matchesGenderFemale">
+            Femme
+            <input id="matchesGenderFemale" type="radio" formControlName="matchesGender" value="Female">
+        </label>
+        <label for="matchesGenderOther">
+            Autre
+            <input id="matchesGenderOther" type="radio" formControlName="matchesGender" value="Other">
+        </label>
+    </div>
+    <div>
+        <label for="size">
+            Taille (en cm) : {{personForm.controls['size'].value}}
+            <input id="size" type="range" formControlName="size" min="120" max="220">
+        </label>
+        <p></p>
+    </div>
+    <div>
+        <label for="weight">
+            Poids (en Kg) : {{personForm.controls['weight'].value}}
+            <input id="weight" type="range" formControlName="weight" min="40" max="230">
+        </label>
+        <p></p>
+    </div>
+    <div>
+        <h4>Couleur des yeux : </h4>
+        <label for="eyesColorBlue">
+            Bleu
+            <input id="eyesColorBlue" type="radio" formControlName="eyesColor" value="Blue">
+        </label>
+        <label for="eyesColorGreen">
+            Vert
+            <input id="eyesColorGreen" type="radio" formControlName="eyesColor" value="Green">
+        </label>
+        <label for="eyesColorMaroon">
+            Noisette
+            <input id="eyesColorMaroon" type="radio" formControlName="eyesColor" value="Maroon">
+        </label>
+        <label for="eyesColorGrey">
+            Gris
+            <input id="eyesColorGrey" type="radio" formControlName="eyesColor" value="Grey">
+        </label>
+        <label for="eyesColorOther">
+            Other
+            <input id="eyesColorOther" type="radio" formControlName="eyesColor" value="Other">
+        </label>
+        <div *ngIf="personForm.controls['eyesColor'].errors && personForm.controls['eyesColor'].touched">
+            <p *ngIf="personForm.controls['eyesColor'].errors['required']">Ce champs est requis.</p>
+        </div>
+    </div>
+    <div>
+        <h4>Couleur des cheveux : </h4>
+        <label for="hairColorBlond">
+            Blond
+            <input id="hairColorBlond" type="radio" formControlName="hairColor" value="Blond">
+        </label>
+        <label for="hairColorBrown">
+            Brun
+            <input id="hairColorBrown" type="radio" formControlName="hairColor" value="Brown">
+        </label>
+        <label for="hairColorBlack">
+            Noir
+            <input id="hairColorBlack" type="radio" formControlName="hairColor" value="Black">
+        </label>
+        <label for="hairColorGrey">
+            Gris
+            <input id="hairColorGrey" type="radio" formControlName="hairColor" value="Grey">
+        </label>
+        <label for="hairColorWhite">
+            Blanc
+            <input id="hairColorWhite" type="radio" formControlName="hairColor" value="White">
+        </label>
+        <label for="hairColorOther">
+            Autre
+            <input id="hairColorOther" type="radio" formControlName="hairColor" value="Other">
+        </label>
+        <div *ngIf="personForm.controls['hairColor'].errors && personForm.controls['hairColor'].touched">
+            <p *ngIf="personForm.controls['hairColor'].errors['required']">Ce champs est requis.</p>
+        </div>
+    </div>
+    <div>
+        <label for="bio">
+            Biographie :
+            <textarea id="bio" formControlName="bio"></textarea>
+        </label>
+        <div *ngIf="personForm.controls['bio'].errors && personForm.controls['bio'].touched">
+            <p *ngIf="personForm.controls['bio'].errors['maxlength']">Ce champs ne peut contenir que 255 caractères.</p>
+        </div>
+    </div>
+</fieldset>
