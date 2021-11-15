@@ -31,7 +31,7 @@ export class RegisterFormComponent implements OnInit {
         confirmPassword: [null, [Validators.required]],
         firstname: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(32)]],
         lastname: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(32)]],
-        birthdate: [null, [Validators.required]]
+        birthdate: [null, [Validators.required, CustomValidators.verifiyAge(18)]]
       },{validator: CustomValidators.CheckFields('password','confirmPassword')}),
       person: this._fb.group({
         pseudo: [null, [Validators.required, Validators.minLength(4), Validators.maxLength(16)]],

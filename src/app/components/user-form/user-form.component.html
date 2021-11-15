@@ -23,6 +23,16 @@
         </div>
     </div>
     <div>
+        <label for="birthdate">
+            Date de naissance :
+            <input id="birthdate" type="date" formControlName="birthdate">
+        </label>
+        <div *ngIf="userForm.controls['birthdate'].errors && userForm.controls['birthdate'].touched">
+            <p *ngIf="userForm.controls['birthdate'].errors['required']">Ce champs est requis.</p>
+            <p *ngIf="userForm.controls['birthdate'].errors['tooYoung']">Vous n'avez pas l'âge requis.</p>
+        </div>
+    </div>
+    <div>
         <label for="email">
             Courrier électronique :
             <input id="email" type="email" formControlName="email">
